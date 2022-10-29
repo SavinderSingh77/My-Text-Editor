@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Navbar title="My Text Editor" home="Home" about="About Us" />
-      <TextContainer />
+      <TextContainer heading = "Enter Text to Analyze" />
     </>
   );
 }
