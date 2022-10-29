@@ -17,10 +17,6 @@ export default function TextContainer() {
                 <p>Approx 3 mins for complete reading</p>
                 <h5>Preview</h5>
             </div>
-
-
-
-
         </>
     )
 }
