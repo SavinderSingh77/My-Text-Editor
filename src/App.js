@@ -3,6 +3,9 @@ import Navbar from "./components/Navbar";
 import TextContainer from "./components/TextContainer";
 
 function App() {
+  document.body.style.background = "linear-gradient(#BCC5CE, #939FAE)"
+
+  
 
 
 
@@ -10,6 +13,7 @@ function App() {
     <>
       <Navbar title="My Text Editor" home="Home" about="About Us"  />
       <TextContainer heading = "Enter Text to Analyze" />
+      
     </>
   );
 }
