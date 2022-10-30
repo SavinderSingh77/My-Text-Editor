@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Navbar.css'
 import PropTypes from 'prop-types'
 
+
 export default function Navbar(props) {
+  const searchBox = ()=>{
+   let search =  document.getElementById("search")
+  search.addEventListener('input',()=>{
+ return search.value.toLowerCase();
+  })
+  }
+  
+
   return (
   <>
   <nav id = "font-style" className="navbar navbar-expand-lg bg-light">
@@ -21,8 +30,7 @@ export default function Navbar(props) {
         </li>
       </ul>
       <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit">Search</button>
+        <input onInput={searchBox} id = "search" className="form-control me-2" type="search" aria-label="Search" value = ""/>
       </form>
     </div>
   </div>
@@ -41,3 +49,5 @@ Navbar.defaultProps = {
     title :"Navbar",
     home:'Home',
     about:'About Us'}
+
+   
