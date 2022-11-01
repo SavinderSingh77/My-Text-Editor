@@ -90,6 +90,7 @@ const bgClick = ()=>{
           value={text}
           onClick = {bgClick}
           onChange={handleChnage}
+          style = {{background: `rgba(255, 255, 255, 0.23)`}}
         ></textarea>
         <button
           onMouseEnter={upperCaseClick}
