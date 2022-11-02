@@ -12,13 +12,13 @@ export default function TextContainer(props) {
   const upperCaseClick = () => {
     let upperCaseText = text;
     setText(upperCaseText.toUpperCase());
-    props.showAlert("Converted to Upper Case", "success");
+    props.showAlert("Text converted to Upper Case", "success");
   };
 
   const lowerCaseClick = () => {
     let lowerCaseText = text;
     setText(lowerCaseText.toLowerCase());
-    props.showAlert("Converted to Lower Case", "success");
+    props.showAlert("Text converted to Lower Case", "success");
   };
 
   const clearTextClick = () => {
@@ -64,7 +64,7 @@ export default function TextContainer(props) {
       str += e[0].toUpperCase() + e.slice(1).toLowerCase() + " ";
     });
     setText(str.slice(0, str.length - 1));
-    props.showAlert("Converted to Title Case", "success");
+    props.showAlert(" Text converted to Title Case", "success");
   };
   const wordCount = () => {
     let arr1 = text.split(" ");

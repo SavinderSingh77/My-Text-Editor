@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 
 export default function Navbar(props) {
-  
+ 
   
 
   return (
@@ -24,9 +24,12 @@ export default function Navbar(props) {
           <a className="nav-link active" style = {{color:`white`}} aria-current="page" href="/">{props.about}</a>
         </li>
       </ul>
-     
+      <div className="form-check form-switch">
+  <input onClick={props.toggleMode} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+  <label className="form-check-label" htmlFor ="flexSwitchCheckDefault" style = {{color:'white'}}>Enable Dark Mode</label>
+</div>
     </div>
-  </div>
+  </div> 
 </nav>
   </>
   )

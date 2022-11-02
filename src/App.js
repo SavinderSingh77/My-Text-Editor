@@ -16,10 +16,21 @@ function App() {
       setAlert(null);
     }, 2000);
   };
+const [mode,setMode] = useState("white")
+  const toggleMode = ()=>{
+    if(mode == 'white'){
+    setMode('black')
+
+    }else{
+      setMode('white')
+
+    }
+  }
+
 
   return (
     <>
-      <Navbar title="My Text Editor" home="Home" about="About Us" />
+      <Navbar title="My Text Editor" home="Home" about="About Us"  toggleMode = {toggleMode}/>
       <Alert alert={alert} />
       <TextContainer showAlert = {showAlert} heading="Enter Text to Analyze" />
     </>
