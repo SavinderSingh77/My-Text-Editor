@@ -5,7 +5,10 @@ import Alert from "./components/Alert";
 import { useState } from "react";
 
 function App() {
-  document.body.style.background = "linear-gradient(#BCC5CE, #939FAE)";
+  window.addEventListener('load', () => {
+    document.body.style.background = "linear-gradient(#BCC5CE, #939FAE)";
+  });
+  // document.body.style.background = "linear-gradient(#BCC5CE, #939FAE)";
   const [alert, setAlert] = useState(null);
   const showAlert = (msg, type) => {
     setAlert({
@@ -16,13 +19,19 @@ function App() {
       setAlert(null);
     }, 2000);
   };
-const [mode,setMode] = useState("white")
+const [mode,setMode] = useState("linear-gradient(#BCC5CE, #939FAE)");
+
+ 
   const toggleMode = ()=>{
-    if(mode == 'white'){
+    if(mode === "linear-gradient(#BCC5CE, #939FAE)"){
     setMode('black')
+    document.body.style.background = "black";
+    console.log('hello')
+
 
     }else{
-      setMode('white')
+      setMode("linear-gradient(#BCC5CE, #939FAE)")
+      document.body.style.background = "linear-gradient(#BCC5CE, #939FAE)";
 
     }
   }
