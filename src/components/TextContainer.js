@@ -3,6 +3,21 @@ import React from "react";
 import { useState } from "react";
 import "./TextContainer.css";
 export default function TextContainer(props) {
+  let btns = document.getElementsByClassName('btn')
+  btns = Array.from(btns);
+  console.log(props.mode)
+  // console.log(btns)
+  btns.forEach(el=>{
+  if(props.mode === 'light'){
+    el.classList.add("button-style-dark");
+    el.classList.remove("button-style-light");
+  }else{
+    el.classList.add("button-style-light");
+    el.classList.remove("button-style-dark");
+  }
+  })
+
+
   const [text, setText] = useState("");
 
   // Making our textbox an editable text box
@@ -28,8 +43,10 @@ export default function TextContainer(props) {
   };
 
   const copyTextClick = () => {
-    let copyText = text;
-    navigator.clipboard.writeText(copyText);
+    let copyText = document.getElementsByTagName('textarea')[0];
+    copyText.select();
+    copyText.setSelectionRange(0, 99999)
+    navigator.clipboard.writeText(copyText.value);
     props.showAlert("Text Copied to Clipboard", "success");
   };
 
@@ -82,13 +99,19 @@ export default function TextContainer(props) {
   wordCount();
 
   const bgClick = () => {
-    document.getElementsByClassName("form-control")[0].style.background =
+    if(props.mode === 'light'){
+      document.getElementsByClassName("form-control")[0].style.background =
       "rgba(255, 255, 255, 0.23)";
-  };
+    }else{
+      document.getElementsByClassName("form-control")[0].style.background =
+      'rgb(197 193 193)'
+    }
+  }
+
   return (
     <>
       <div className="container my-3">
-        <h4 className="my-2">{props.heading}</h4>
+        <h4 className="my-2" style = {{color:props.mode === "light"?'black':'white'}}>{props.heading}</h4>
         <textarea
           className="form-control"
           rows="8"
@@ -96,64 +119,64 @@ export default function TextContainer(props) {
           onClick={bgClick}
           onChange={handleChnage}
           style={{
-            background: `rgba(255, 255, 255, 0.23)`,
+            background: props.mode === 'light'?`rgba(255, 255, 255, 0.23)`:'rgb(197 193 193)',
             color: "#000000bf",
             fontSize: "1.3rem",
           }}
         ></textarea>
         <button
-          onClick={upperCaseClick}
+          className="btn  button-style-dark my-3 mx-2"
           type="button"
-          className="btn button-style my-3 mx-2"
+          onClick={upperCaseClick}  
         >
-          Convert to Upper Case
+          Convert to Upper Cases
         </button>
         <button
           onClick={lowerCaseClick}
           type="button"
-          className="btn button-style my-3 mx-2"
+          className="btn  button-style-dark my-3 mx-2"
         >
           Convert to Lower Case
         </button>
         <button
           onClick={titleCaseClick}
           type="button"
-          className="btn button-style my-3 mx-2"
+          className="btn  button-style-dark my-3 mx-2"
         >
           Convert to Tilte Case
         </button>
         <button
           onClick={clearTextClick}
           type="button"
-          className="btn button-style my-3 mx-2"
+          className="btn  button-style-dark my-3 mx-2"
         >
           Clear Text
         </button>
         <button
           onClick={copyTextClick}
           type="button"
-          className="btn button-style my-3 mx-2"
+          className="btn  button-style-dark my-3 mx-2"
         >
           Copy to Clipboard
         </button>
         <button
           onClick={removeSpacesClick}
           type="button"
-          className="btn button-style my-3 mx-2"
+          className="btn  button-style-dark my-3 mx-2"
         >
           Remove Extra Spaces
         </button>
-        <h4>Your Text Summary</h4>
-        <p>
+        <h4 style = {{color:props.mode === "light"?'black':'white'}}>Your Text Summary</h4>
+        <p style = {{color:props.mode === "light"?'black':'white'}}>
           {" "}
           Words Count : {wordCount()} Characters :{text.length}
         </p>
-        <p>
+        <p style = {{color:props.mode === "light"?'black':'white'}}>
           Approx {Number.parseFloat(wordCount() * 0.0067).toFixed(3)} mins for
           complete reading
         </p>
-        <h4>Preview</h4>
-        <p>
+        <h4 style = {{color:props.mode === "light"?'black':'white'}}>Preview</h4>
+        <p style = {{color:props.mode === "light"?'black':'white'}}>
           {text === ""
             ? "Enter some text in the textbox to preview it here"
             : text}
@@ -167,7 +190,7 @@ export default function TextContainer(props) {
         ></path>
       </svg>
       <div id="bg-svg">
-        <footer> Copyright &#169; 2022 SaviSingh.com </footer>
+        <footer style =  {{background: props.mode === "light" ? `black`:'#e4e4e4', color:props.mode === 'light'?'white':'black'}} > Copyright &#169; 2022 SaviSingh.com </footer>
       </div>
     </>
   );

@@ -5,9 +5,10 @@ import Alert from "./components/Alert";
 import { useState } from "react";
 
 function App() {
-  window.addEventListener('load', () => {
-    document.body.style.background = "linear-gradient(#BCC5CE, #939FAE)";
-  });
+
+    
+
+ 
   // document.body.style.background = "linear-gradient(#BCC5CE, #939FAE)";
   const [alert, setAlert] = useState(null);
   const showAlert = (msg, type) => {
@@ -19,18 +20,20 @@ function App() {
       setAlert(null);
     }, 2000);
   };
-const [mode,setMode] = useState("linear-gradient(#BCC5CE, #939FAE)");
-
+const [mode,setMode] = useState("light");
+if(mode === "light"){
+  document.body.style.background = "linear-gradient(#BCC5CE, #939FAE)";
+}
  
   const toggleMode = ()=>{
-    if(mode === "linear-gradient(#BCC5CE, #939FAE)"){
+    if(mode === "light"){
     setMode('black')
-    document.body.style.background = "black";
+    document.body.style.background = "rgb(42 40 40)";
     console.log('hello')
 
 
     }else{
-      setMode("linear-gradient(#BCC5CE, #939FAE)")
+      setMode("light")
       document.body.style.background = "linear-gradient(#BCC5CE, #939FAE)";
 
     }
@@ -39,9 +42,9 @@ const [mode,setMode] = useState("linear-gradient(#BCC5CE, #939FAE)");
 
   return (
     <>
-      <Navbar title="My Text Editor" home="Home" about="About Us"  toggleMode = {toggleMode}/>
+      <Navbar title="My Text Editor" home="Home" about="About Us"  toggleMode = {toggleMode} mode ={mode}/>
       <Alert alert={alert} />
-      <TextContainer showAlert = {showAlert} heading="Enter Text to Analyze" />
+      <TextContainer showAlert = {showAlert} heading="Enter Text to Analyze" mode = {mode} />
     </>
   );
 }
