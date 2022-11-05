@@ -9,7 +9,7 @@ export default function Navbar(props) {
 
   return (
   <>
-  <nav id = "font-style" className="navbar navbar-expand " style = {{background: props.mode === "light" ? `#100a5ad4`:'#e4e4e4'}} >
+  <nav id = "font-style" className="navbar navbar-expand " style = {{background: props.mode === "light" ? `#100a5ad4`:'#e4e4e4', transition : "1s"}} >
   <div className="container-fluid">
     <a className="navbar-brand" style = {{color:props.mode === 'light'?'white':'black'}} href="/">{props.title}</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

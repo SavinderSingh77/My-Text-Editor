@@ -6,7 +6,7 @@ import { useState } from "react";
 
 function App() {
 
-    
+  document.body.style.transition = "1s";
 
  
   // document.body.style.background = "linear-gradient(#BCC5CE, #939FAE)";
@@ -22,19 +22,26 @@ function App() {
   };
 const [mode,setMode] = useState("light");
 if(mode === "light"){
+  document.body.style.transition = "1s";
   document.body.style.background = "linear-gradient(#BCC5CE, #939FAE)";
 }
  
   const toggleMode = ()=>{
     if(mode === "light"){
     setMode('black')
+    
     document.body.style.background = "rgb(42 40 40)";
-    console.log('hello')
+    showAlert('Dark Mode Enabled','Success')
+    // console.log('hello')
+    
 
 
     }else{
       setMode("light")
+      showAlert('Light Mode Enabled','Success')
       document.body.style.background = "linear-gradient(#BCC5CE, #939FAE)";
+      
+     
 
     }
   }
