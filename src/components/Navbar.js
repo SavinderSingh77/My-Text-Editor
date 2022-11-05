@@ -23,8 +23,12 @@ export default function Navbar(props) {
         <li className="nav-item">
           <a className="nav-link active" style = {{color:props.mode === 'light'?'white':'black'}} aria-current="page" href="/">{props.about}</a>
         </li>
+        
       </ul>
-      <div className="form-check form-switch">
+      <form className="form-inline max-2 my-2 my-lg-0">
+      <input className=" mr-sm-2" type="search" placeholder="Search" aria-label="Search"  style = {{background:props.mode === 'light'?'white':'white',outline:'3px solid white',color:'black', borderRadius:'14px',height:'2.2rem'}}/>
+    </form>
+      <div className="form-check form-switch mx-2">
   <input onClick={props.toggleMode} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
   <label className="form-check-label" htmlFor ="flexSwitchCheckDefault" style = {{color:props.mode === 'light'?'white':'black'}}>{props.mode === 'light'?'Enable Dark Mode':'Enable Light Mode'}</label>
 </div>
