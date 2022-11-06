@@ -6,7 +6,7 @@ export default function TextContainer(props) {
   document.body.style.transition = '1s';
   let btns = document.getElementsByClassName("btn");
   btns = Array.from(btns);
-  console.log(props.mode);
+  // console.log(props.mode);
   // console.log(btns)
   btns.forEach((el) => {
     if (props.mode === "light") {
@@ -52,7 +52,7 @@ export default function TextContainer(props) {
 
   const removeSpacesClick = () => {
     let arr = text.split(" ");
-    console.log(arr);
+    // console.log(arr);
     let arrNew = [];
     arr.forEach((element) => {
       if (element === "") {
@@ -67,7 +67,7 @@ export default function TextContainer(props) {
 
   const titleCaseClick = () => {
     let arr = text.split(" ");
-    console.log(arr);
+    // console.log(arr);
     let arrNew = [];
     arr.forEach((element) => {
       if (element === "") {
@@ -108,8 +108,41 @@ export default function TextContainer(props) {
       document.getElementsByClassName("form-control")[0].style.background =
         "rgb(197 193 193)";
     }
+  }
+let searchText = props.showSearch;
+
+const kk = ()=>{
+
+  if(text === ""){
+   return 'enter text here'
+ 
+  }
+  else{
+    let para = document.getElementById('paragraph')
+    if(text.includes(props.showSearch) && props.showSearch !== ""){
+      // console.log(text.replace(props.showSearch,'555'))
+    
+    //  console.log(spn.append(props.showSearch))
+    var regexValue = new RegExp( `(${props.showSearch})`, 'ig');
+    let b = <p style = {{color:'red'}}>{props.showSearch}</p>
+    
+    // console.log(para.innerHTML)
+    para.innerHTML = para.innerHTML.toLowerCase().replace(regexValue,` ***${b.props.children}*** `)
+    // console.log(b.props.children)
+    
+  return para.innerHTML.toLowerCase()
+    }else{
+      const para = document.getElementById('paragraph');
+      return text;
+    }
+  
   };
 
+}
+
+
+
+  
   return (
     <>
       <div className="container my-3" style = {{transition:'1s'}}>
@@ -188,12 +221,12 @@ export default function TextContainer(props) {
           complete reading
         </p>
         <h4 style={{ color: props.mode === "light" ? "black" : "white" }}>
-          Preview
+          Preview 
         </h4>
-        <p style={{ color: props.mode === "light" ? "black" : "white" }}>
-          {text === ""
-            ? "Enter some text in the textbox to preview it here"
-            : text}
+        <p id = "paragraph" style={{ color: props.mode === "light" ? "black" : "white" }}>
+          
+          {/* "Enter Text in the Textbox to preview it here !" */} 
+        {kk()}
         </p>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -211,8 +244,7 @@ export default function TextContainer(props) {
             transition:'1s'
           }}
         >
-          {" "}
-          Copyright &#169; 2022 SaviSingh.com{" "}
+          Copyright &#169; 2022 SaviSingh.com
         </footer>
       </div>
     </>

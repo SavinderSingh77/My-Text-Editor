@@ -45,8 +45,10 @@ if(mode === "light"){
 
     }
   }
+  const [search, searchText] = useState("")
   const searchBar = (text)=>{
-    return console.log(text)
+    // console.log(text)
+    searchText(text)
     }
 
 
@@ -55,7 +57,7 @@ if(mode === "light"){
     <>
       <Navbar title="My Text Editor" home="Home" about="About Us"  toggleMode = {toggleMode} mode ={mode} searchBar = {searchBar}/>
       <Alert alert={alert} />
-      <TextContainer showAlert = {showAlert} heading="Enter Text to Analyze" mode = {mode} />
+      <TextContainer showAlert = {showAlert} heading="Enter Text to Analyze" mode = {mode} showSearch = {search} />
     </>
   );
 }

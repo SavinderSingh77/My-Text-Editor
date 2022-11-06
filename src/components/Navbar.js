@@ -4,16 +4,20 @@ import PropTypes from 'prop-types'
 
 
 export default function Navbar(props) {
-  const [text, setText] = useState("")
- 
-// const handleChnage = (e)=> {
-//  setText(e.target.value);
-// }
-// props.searchBar(searching())
+const [text,setText] = useState("");
+const btnSearch = ()=>{
+  // console.log(text)
+  props.searchBar(text)
+}
+const handleChange = (e)=>{
+
+  setText(e.target.value)
+  // props.searchBar(e.target.value)
 
 
+}
 
-  
+
 
   return (
   <>
@@ -36,9 +40,10 @@ export default function Navbar(props) {
 
 
 
-      <form className="form-inline max-2 my-2 my-lg-0"  >
-      <input id = "searchbar"  className=" mr-sm-2" type="search" aria-label="Search"  style = {{background:props.mode === 'light'?'white':'white',outline:'3px solid white',color:'black', borderRadius:'7px',height:'2.2rem'}} />
-    </form>
+      {/* <form className="form-inline max-2 my-2 my-lg-0"  > */}
+      <input id = "searchbar"  className=" mr-sm-2" type="search" aria-label="Search" placeholder='Search' style = {{background:props.mode === 'light'?'white':'white',outline:'3px solid white',color:'black', borderRadius:'7px',height:'2.2rem'}} value = {text} onChange={handleChange}/>
+      <button onClick={btnSearch}  className="mx-2 my-2 my-sm-0">Search</button>
+    {/* </form> */}
 
 
 
