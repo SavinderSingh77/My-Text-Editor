@@ -4,7 +4,15 @@ import PropTypes from 'prop-types'
 
 
 export default function Navbar(props) {
+  const [text, setText] = useState("")
  
+// const handleChnage = (e)=> {
+//  setText(e.target.value);
+// }
+// props.searchBar(searching())
+
+
+
   
 
   return (
@@ -25,11 +33,18 @@ export default function Navbar(props) {
         </li>
         
       </ul>
-      <form className="form-inline max-2 my-2 my-lg-0">
-      <input className=" mr-sm-2" type="search" placeholder="Search" aria-label="Search"  style = {{background:props.mode === 'light'?'white':'white',outline:'3px solid white',color:'black', borderRadius:'14px',height:'2.2rem'}}/>
+
+
+
+      <form className="form-inline max-2 my-2 my-lg-0"  >
+      <input id = "searchbar"  className=" mr-sm-2" type="search" aria-label="Search"  style = {{background:props.mode === 'light'?'white':'white',outline:'3px solid white',color:'black', borderRadius:'7px',height:'2.2rem'}} />
     </form>
-      <div className="form-check form-switch mx-2">
-  <input onClick={props.toggleMode} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+
+
+
+
+      <div className="form-check form-switch mx-5">
+  <input onClick={props.toggleMode} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"  />
   <label className="form-check-label" htmlFor ="flexSwitchCheckDefault" style = {{color:props.mode === 'light'?'white':'black'}}>{props.mode === 'light'?'Enable Dark Mode':'Enable Light Mode'}</label>
 </div>
     </div>

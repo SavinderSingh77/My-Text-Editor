@@ -45,11 +45,15 @@ if(mode === "light"){
 
     }
   }
+  const searchBar = (text)=>{
+    return console.log(text)
+    }
+
 
 
   return (
     <>
-      <Navbar title="My Text Editor" home="Home" about="About Us"  toggleMode = {toggleMode} mode ={mode}/>
+      <Navbar title="My Text Editor" home="Home" about="About Us"  toggleMode = {toggleMode} mode ={mode} searchBar = {searchBar}/>
       <Alert alert={alert} />
       <TextContainer showAlert = {showAlert} heading="Enter Text to Analyze" mode = {mode} />
     </>
