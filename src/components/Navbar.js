@@ -26,15 +26,15 @@ if(window.screen.width <960){
   <nav id = "font-style" className="navbar navbar-expand " style = {{background: props.mode === "light" ? `#100a5ad4`:'#e4e4e4', transition : "1s"}} >
   <div className="container-fluid">
 
-    <a className="navbar-brand" style = {{color:props.mode === 'light'?'white':'black'}} href="/">{props.title}</a>
+    <a className="navbar-brand" style = {{color:props.mode === 'light'?'white':'black'}} href="#">{props.title}</a>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul id = "flex" className="navbar-nav me-auto mb-2 mb-lg-0">
         
         <li className="nav-item">
-          <a className=" nav-link active" style = {{color:props.mode === 'light'?'white':'black'}} aria-current="page" href="/">{props.home}</a>
+          <a className=" nav-link active" style = {{color:props.mode === 'light'?'white':'black'}} aria-current="page" href="#">{props.home}</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" style = {{color:props.mode === 'light'?'white':'black'}} aria-current="page" href="/">{props.about}</a>
+          <a className="nav-link active" style = {{color:props.mode === 'light'?'white':'black'}} aria-current="page" href="#">{props.about}</a>
         </li>
         
       </ul>
