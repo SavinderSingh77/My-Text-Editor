@@ -114,7 +114,7 @@ let searchText = props.showSearch;
 const kk = ()=>{
 
   if(text === ""){
-   return 'enter text here'
+   return 'Enter text in the textbox to preview it here'
  
   }
   else{
@@ -127,13 +127,13 @@ const kk = ()=>{
     let b = <p style = {{color:'red'}}>{props.showSearch}</p>
     
     // console.log(para.innerHTML)
-    para.innerHTML = para.innerHTML.toLowerCase().replace(regexValue,` ***${b.props.children}*** `)
+    para.innerHTML = para.innerHTML.toLowerCase().replace(regexValue,`${props.showSearch.toUpperCase()}`)
     // console.log(b.props.children)
     
   return para.innerHTML.toLowerCase()
     }else{
       const para = document.getElementById('paragraph');
-      return text;
+      return text.toLowerCase();
     }
   
   };
