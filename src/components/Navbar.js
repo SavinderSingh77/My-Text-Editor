@@ -13,22 +13,23 @@ const handleChange = (e)=>{
 
   setText(e.target.value)
   // props.searchBar(e.target.value)
-
-
 }
-
+const ul = document.getElementsByTagName('ul')[0]
+console.log(ul)
+if(window.screen.width <960){
+  console.log("hello")
+}
 
 
   return (
   <>
   <nav id = "font-style" className="navbar navbar-expand " style = {{background: props.mode === "light" ? `#100a5ad4`:'#e4e4e4', transition : "1s"}} >
   <div className="container-fluid">
+
     <a className="navbar-brand" style = {{color:props.mode === 'light'?'white':'black'}} href="/">{props.title}</a>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul id = "flex" className="navbar-nav me-auto mb-2 mb-lg-0">
+        
         <li className="nav-item">
           <a className=" nav-link active" style = {{color:props.mode === 'light'?'white':'black'}} aria-current="page" href="/">{props.home}</a>
         </li>
@@ -42,7 +43,7 @@ const handleChange = (e)=>{
 
       {/* <form className="form-inline max-2 my-2 my-lg-0"  > */}
       <input id = "searchbar"  className=" mr-sm-2" type="search" aria-label="Search" placeholder='Search' style = {{background:props.mode === 'light'?'white':'white',outline:'3px solid white',color:'black', borderRadius:'7px',height:'2.2rem'}} value = {text} onChange={handleChange}/>
-      <button onClick={btnSearch}  className="mx-2 my-2 my-sm-0">Search</button>
+      <button onClick={btnSearch}  className="searchBtn mx-2 my-3 my-sm-0"  style = {{background: props.mode === "light" ? `#100a5ad4`:'black', transition : "1s"}}>Search</button>
     {/* </form> */}
 
 
