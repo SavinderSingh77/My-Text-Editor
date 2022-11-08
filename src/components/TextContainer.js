@@ -109,7 +109,7 @@ export default function TextContainer(props) {
         "rgb(197 193 193)";
     }
   }
-let searchText = props.showSearch;
+
 
 const kk = ()=>{
 
@@ -124,15 +124,15 @@ const kk = ()=>{
     
     //  console.log(spn.append(props.showSearch))
     var regexValue = new RegExp( `(${props.showSearch})`, 'ig');
-    let b = <p style = {{color:'red'}}>{props.showSearch}</p>
+   
     
     // console.log(para.innerHTML)
-    para.innerHTML = para.innerHTML.toLowerCase().replace(regexValue,` ***${b.props.children}*** `)
+    para.innerHTML = para.innerHTML.toLowerCase().replace(regexValue,props.showSearch.toUpperCase())
     // console.log(b.props.children)
     
   return para.innerHTML.toLowerCase()
     }else{
-      const para = document.getElementById('paragraph');
+      // const para = document.getElementById('paragraph');
       return text;
     }
   
@@ -236,17 +236,18 @@ const kk = ()=>{
           d="M0,224L40,229.3C80,235,160,245,240,218.7C320,192,400,128,480,101.3C560,75,640,85,720,122.7C800,160,880,224,960,245.3C1040,267,1120,245,1200,202.7C1280,160,1360,96,1400,64L1440,32L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
         ></path>
       </svg>
-      <div id="bg-svg">
-        <footer
-          style={{
-            background: props.mode === "light" ? `black` : "#e4e4e4",
-            color: props.mode === "light" ? "white" : "black",
-            transition:'1s'
-          }}
-        >
-          Copyright &#169; 2022 SaviSingh.com
-        </footer>
-      </div>
+      <section id="lab_social_icon_footer" style = {{background: props.mode === "light" ? `rgb(42 40 40)`:'rgb(42 40 40)', transition : "1s",padding:'10px 0'}}>
+
+<div className="container">
+  <p style={{textAlign:'center', color:'white'}} > Hi! I am Savinder. Connect with me</p>
+        <div className="text-center center-block">
+               
+	            <a href="https://twitter.com/Savindersingh77"  target='blank'><i id="social-tw" className="fa fa-twitter-square fa-3x social"></i></a>
+	            <a href="mailto:savindersingh500@gmail.com"  target='blank'><i id="social-gp" className="fa fa-google-plus-square fa-3x social"></i></a>
+	            <a href="mailto:savindersingh500@gmail.com" target='blank'><i id="social-em" className="fa fa-envelope-square fa-3x social"></i></a>
+    </div>
+</div>
+</section>
     </>
   );
 }

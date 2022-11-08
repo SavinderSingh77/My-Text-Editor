@@ -7,3 +7,42 @@
     background-color: #8d94a0;
     border-color: #0d6efd;
 }
+.searchBtn{
+    padding:5px 10px;
+    border-radius:7px;
+    background-color: #100a5ad4;
+    color:white;
+    border:1px solid white;
+}
+.me-auto {
+    margin-right: auto;
+}
+
+@media screen and (max-width: 960px) {
+  .container-fluid{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border:1px solid rgb(184, 75, 75); */
+  }
+  #navbarSupportedContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border:1px solid rgb(173, 23, 23); */
+  }
+  #flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border:1px solid rgb(180, 25, 25); */
+  }
+  .me-auto {
+    margin: auto;
+}
+
+  
+  }
