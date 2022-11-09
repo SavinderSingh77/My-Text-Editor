@@ -33,9 +33,9 @@ if(window.screen.width <960){
         <li className="nav-item">
           <a className=" nav-link active" style = {{color:props.mode === 'light'?'white':'black'}} aria-current="page" href="#">{props.home}</a>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a className="nav-link active" style = {{color:props.mode === 'light'?'white':'black'}} aria-current="page" href="#">{props.about}</a>
-        </li>
+        </li> */}
         
       </ul>
 
@@ -63,12 +63,12 @@ if(window.screen.width <960){
 Navbar.propTypes = {
     title: PropTypes.string.isRequired,
     home:PropTypes.string.isRequired,
-    about:PropTypes.string.isRequired 
+    // about:PropTypes.string.isRequired 
   };
 
 Navbar.defaultProps = {
     title :"Navbar",
     home:'Home',
-    about:'About Us'}
+   /* about:'About Us'*/}
 
    
