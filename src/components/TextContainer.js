@@ -47,6 +47,7 @@ export default function TextContainer(props) {
     copyText.select();
     copyText.setSelectionRange(0, 99999);
     navigator.clipboard.writeText(copyText.value);
+    document.getSelection().removeAllRanges()
     props.showAlert("Text Copied to Clipboard", "success");
   };
 
@@ -168,41 +169,42 @@ const kk = ()=>{
           }}
         ></textarea>
         <button
+        disabled = {text.length === 0}
           className="btn  button-style-dark my-3 mx-2"
           type="button"
           onClick={upperCaseClick}
         >
           Convert to Upper Cases
         </button>
-        <button
+        <button disabled = {text.length === 0}
           onClick={lowerCaseClick}
           type="button"
           className="btn  button-style-dark my-3 mx-2"
         >
           Convert to Lower Case
         </button>
-        <button
+        <button disabled = {text.length === 0}
           onClick={titleCaseClick}
           type="button"
           className="btn  button-style-dark my-3 mx-2"
         >
           Convert to Tilte Case
         </button>
-        <button
+        <button disabled = {text.length === 0}
           onClick={clearTextClick}
           type="button"
           className="btn  button-style-dark my-3 mx-2"
         >
           Clear Text
         </button>
-        <button
+        <button disabled = {text.length === 0}
           onClick={copyTextClick}
           type="button"
           className="btn  button-style-dark my-3 mx-2"
         >
           Copy to Clipboard
         </button>
-        <button
+        <button disabled = {text.length === 0}
           onClick={removeSpacesClick}
           type="button"
           className="btn  button-style-dark my-3 mx-2"
