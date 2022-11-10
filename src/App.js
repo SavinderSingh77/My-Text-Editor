@@ -2,7 +2,9 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import TextContainer from "./components/TextContainer";
 import Alert from "./components/Alert";
+import About from "./components/About";
 import { useState } from "react";
+import {BrowserRouter as Router, Switch, Route, Routes , Link} from "react-router-dom"
 
 function App() {
 
@@ -54,11 +56,30 @@ if(mode === "light"){
 
 
   return (
+    <Router>
     <>
       <Navbar title="My Text Editor" home="Home" about="About Us"  toggleMode = {toggleMode} mode ={mode} searchBar = {searchBar}/>
       <Alert alert={alert} />
-      <TextContainer showAlert = {showAlert} heading="Enter Text to Analyze" mode = {mode} showSearch = {search} />
+      <Routes>
+
+      <Route exact path="/" element={<TextContainer showAlert = {showAlert} heading="Enter Text to Analyze" mode = {mode} showSearch = {search} />}/>
+      <Route exact path="/home" element={<TextContainer showAlert = {showAlert} heading="Enter Text to Analyze" mode = {mode} showSearch = {search} />}/>
+      <Route exact path="/about" element={<About/>}/>
+
+          {/* <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/">
+          <TextContainer showAlert = {showAlert} heading="Enter Text to Analyze" mode = {mode} showSearch = {search} />
+          </Route>
+          <Route path="/home">
+          <TextContainer showAlert = {showAlert} heading="Enter Text to Analyze" mode = {mode} showSearch = {search} />
+          </Route> */}
+        </Routes>
+      
+      
     </>
+    </Router>
   );
 }
 

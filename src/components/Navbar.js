@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Navbar.css'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 
 
 export default function Navbar(props) {
@@ -26,16 +27,16 @@ if(window.screen.width <960){
   <nav id = "font-style" className="navbar navbar-expand " style = {{background: props.mode === "light" ? `#100a5ad4`:'#e4e4e4', transition : "1s"}} >
   <div className="container-fluid">
 
-    <a className="navbar-brand" style = {{color:props.mode === 'light'?'white':'black'}} href="#">{props.title}</a>
+    <Link className="navbar-brand" style = {{color:props.mode === 'light'?'white':'black'}} to="/">{props.title}</Link>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul id = "flex" className="navbar-nav me-auto mb-2 mb-lg-0">
         
         <li className="nav-item">
-          <a className=" nav-link active" style = {{color:props.mode === 'light'?'white':'black'}} aria-current="page" href="#">{props.home}</a>
+          <Link className=" nav-link active" style = {{color:props.mode === 'light'?'white':'black'}} aria-current="page" to="/home">{props.home}</Link>
         </li>
-        {/* <li className="nav-item">
-          <a className="nav-link active" style = {{color:props.mode === 'light'?'white':'black'}} aria-current="page" href="#">{props.about}</a>
-        </li> */}
+        { <li className="nav-item">
+          <Link className="nav-link active" style = {{color:props.mode === 'light'?'white':'black'}} aria-current="page" to="/about">{props.about}</Link>
+        </li> }
         
       </ul>
 
@@ -63,12 +64,12 @@ if(window.screen.width <960){
 Navbar.propTypes = {
     title: PropTypes.string.isRequired,
     home:PropTypes.string.isRequired,
-    // about:PropTypes.string.isRequired 
+    about:PropTypes.string.isRequired 
   };
 
 Navbar.defaultProps = {
     title :"Navbar",
     home:'Home',
-   /* about:'About Us'*/}
+    about:'About Us'}
 
    
