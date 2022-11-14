@@ -85,7 +85,7 @@ export default function TextContainer(props) {
     props.showAlert(" Text converted to Title Case", "success");
   };
   const wordCount = () => {
-    let arr1 = text.split(" ");
+    let arr1 = text.split(/\s+/);
     let words = [];
     arr1.forEach((e) => {
       if (e === "") {
